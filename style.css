@@ -1,0 +1,1654 @@
+/* ================================= */
+/* GLOBAL */
+/* ================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #681c38 0%,
+            #3b0a1c 35%,
+            #180009 75%,
+            #080003 100%
+        );
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    text-align: center;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================= */
+/* MOVING STARS */
+/* ================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            white 2px,
+            transparent 2px
+        );
+
+    background-size:
+        80px 80px,
+        130px 130px,
+        210px 210px;
+
+    background-position:
+        20px 20px,
+        60px 80px,
+        100px 30px;
+
+    opacity: 0.18;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation:
+        starDrift 35s linear infinite;
+}
+
+
+@keyframes starDrift {
+
+    from {
+        background-position:
+            20px 20px,
+            60px 80px,
+            100px 30px;
+    }
+
+    to {
+        background-position:
+            120px 180px,
+            200px 20px,
+            20px 150px;
+    }
+}
+
+
+/* ================================= */
+/* TEXT */
+/* ================================= */
+
+h1 {
+    margin-top: 0;
+
+    font-size:
+        clamp(38px, 6vw, 60px);
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 25px rgba(255,150,190,0.5);
+}
+
+
+h2 {
+    font-size:
+        clamp(30px, 5vw, 45px);
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.6);
+}
+
+
+h3 {
+    line-height: 1.3;
+}
+
+
+p {
+    font-size: 20px;
+
+    line-height: 1.6;
+}
+
+
+/* ================================= */
+/* BUTTONS */
+/* ================================= */
+
+button {
+    padding: 14px 28px;
+
+    font-size: 17px;
+
+    font-family: inherit;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.06)
+        );
+
+    border: 1px solid
+        rgba(255,255,255,0.3);
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.1)
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,120,170,0.2);
+}
+
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+button:disabled {
+    cursor: default;
+}
+
+
+/* ================================= */
+/* WELCOME SCREEN */
+/* ================================= */
+
+#welcomeScreen {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 1;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+#welcomeScreen h1 {
+    max-width: 850px;
+}
+
+
+#welcomeScreen p {
+    max-width: 550px;
+
+    opacity: 0.8;
+
+    margin-bottom: 30px;
+}
+
+
+#welcomeScreen.fadeOut {
+    opacity: 0;
+}
+
+
+/* ================================= */
+/* MAIN UNIVERSE */
+/* ================================= */
+
+#universeScreen {
+    display: none;
+
+    padding-top: 80px;
+}
+
+
+/* ================================= */
+/* GIFT */
+/* ================================= */
+
+#giftBox {
+    font-size: 100px;
+
+    margin-top: 50px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,100,160,0.4)
+        );
+}
+
+
+#giftBox:hover {
+    transform:
+        scale(1.2)
+        rotate(3deg);
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,120,180,0.7)
+        );
+}
+
+
+#giftBox:active {
+    transform: scale(0.95);
+}
+
+
+#giftBox.opened {
+    animation:
+        giftOpen 0.6s ease;
+}
+
+
+@keyframes giftOpen {
+
+    0% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+    40% {
+        transform:
+            scale(1.35)
+            rotate(-8deg);
+    }
+
+    70% {
+        transform:
+            scale(1.45)
+            rotate(8deg);
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+#giftMessage {
+    display: none;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.2);
+}
+
+
+/* ================================= */
+/* OPEN WHEN LETTERS */
+/* ================================= */
+
+#lettersSection {
+    margin-top: 100px;
+
+    padding: 60px 20px;
+}
+
+
+#lettersSection h2 {
+    text-shadow:
+        0 0 10px white;
+}
+
+
+.letters {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    max-width: 950px;
+
+    margin: 40px auto;
+}
+
+
+.letter {
+    width: 220px;
+
+    min-height: 110px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.04)
+        );
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.letter:hover {
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255,120,170,0.18);
+}
+
+
+/* ================================= */
+/* LETTER POPUP */
+/* ================================= */
+
+#letterPopup {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 50;
+}
+
+
+#letterContent {
+    position: relative;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    padding: 45px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b0d21,
+            #21000d
+        );
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 0 40px
+        rgba(255,255,255,0.15);
+
+    animation:
+        popupAppear 0.4s ease;
+}
+
+
+#letterMessage {
+    font-size: 22px;
+
+    line-height: 1.7;
+}
+
+
+#closeLetter {
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    background: none;
+
+    border: none;
+
+    box-shadow: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    padding: 5px;
+}
+
+
+#closeLetter:hover {
+    background: none;
+
+    box-shadow: none;
+
+    transform: scale(1.1);
+}
+
+
+/* ================================= */
+/* MUSIC */
+/* ================================= */
+
+#musicSection {
+    margin-top: 100px;
+
+    padding: 70px 20px;
+}
+
+
+#musicSection p {
+    opacity: 0.75;
+}
+
+
+#musicButton {
+    margin-top: 20px;
+
+    animation:
+        musicPulse 3s ease-in-out infinite;
+}
+
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px
+            rgba(255,255,255,0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px
+            rgba(255,120,170,0.25);
+    }
+}
+
+
+/* ================================= */
+/* QUIZ */
+/* ================================= */
+
+#quizSection {
+    margin-top: 100px;
+
+    padding: 60px 20px;
+}
+
+
+#quiz {
+    max-width: 600px;
+
+    margin: 35px auto;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.2);
+}
+
+
+#question {
+    font-size: 25px;
+
+    margin-bottom: 30px;
+}
+
+
+.answerButton {
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 15px 20px;
+
+    text-align: left;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border-radius: 15px;
+}
+
+
+.answerButton:hover {
+    background:
+        rgba(255,255,255,0.14);
+}
+
+
+#quizResult {
+    min-height: 30px;
+
+    margin: 25px 10px;
+}
+
+
+#nextQuestion {
+    margin-top: 10px;
+}
+
+
+/* ================================= */
+/* FUTURE MEMORIES */
+/* ================================= */
+
+#memoriesSection {
+    margin-top: 100px;
+
+    padding: 60px 20px;
+}
+
+
+#memoriesSection > p {
+    max-width: 600px;
+
+    margin:
+        20px auto 45px;
+}
+
+
+#memoriesGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+
+.memoryCard {
+    min-height: 220px;
+
+    padding: 25px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.memoryCard:hover {
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 40px
+        rgba(255,120,170,0.18);
+}
+
+
+.memoryIcon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,255,255,0.3)
+        );
+}
+
+
+.memoryCard h3 {
+    font-size: 20px;
+}
+
+
+.memoryCard p {
+    font-size: 16px;
+
+    opacity: 0.7;
+}
+
+
+.specialMemory {
+    border:
+        1px dashed
+        rgba(255,255,255,0.4);
+}
+
+
+/* ================================= */
+/* MEMORY POPUP */
+/* ================================= */
+
+#memoryPopup {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 60;
+}
+
+
+#memoryPopupContent {
+    position: relative;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    padding: 45px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b0d21,
+            #21000d
+        );
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 40px
+        rgba(255,255,255,0.2);
+
+    animation:
+        popupAppear 0.4s ease;
+}
+
+
+#memoryPopupIcon {
+    font-size: 60px;
+}
+
+
+#memoryPopupContent p {
+    line-height: 1.6;
+}
+
+
+#closeMemory {
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    background: none;
+
+    border: none;
+
+    box-shadow: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    padding: 5px;
+}
+
+
+#closeMemory:hover {
+    background: none;
+
+    box-shadow: none;
+
+    transform: scale(1.1);
+}
+
+
+/* ================================= */
+/* UNIVERSE MAP */
+/* ================================= */
+
+#universeMap {
+    position: relative;
+
+    margin-top: 120px;
+
+    padding: 100px 20px 120px;
+
+    min-height: 700px;
+
+    overflow: hidden;
+}
+
+
+#universeMap h2 {
+    position: relative;
+
+    font-size: 42px;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px
+        rgba(255,255,255,0.5);
+
+    z-index: 2;
+}
+
+
+.mapIntro {
+    position: relative;
+
+    max-width: 600px;
+
+    margin: 20px auto 70px;
+
+    line-height: 1.6;
+
+    opacity: 0.85;
+
+    z-index: 2;
+}
+
+
+#planetContainer {
+    position: relative;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 45px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    z-index: 2;
+}
+
+
+/* ================================= */
+/* PLANETS */
+/* ================================= */
+
+.planet {
+    position: relative;
+
+    width: 190px;
+
+    height: 190px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,255,255,0.3),
+            rgba(255,255,255,0.08) 45%,
+            rgba(0,0,0,0.2)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,255,255,0.15),
+        inset -15px -15px 30px
+        rgba(0,0,0,0.2);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.planet::before {
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    top: 20px;
+
+    left: 25px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    filter: blur(8px);
+
+    pointer-events: none;
+}
+
+
+.planet::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130%;
+
+    height: 20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-20deg);
+
+    pointer-events: none;
+}
+
+
+.planet:hover {
+    transform:
+        translateY(-12px)
+        scale(1.08);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,255,255,0.3),
+
+        0 0 60px
+        rgba(255,255,255,0.12);
+}
+
+
+.planetIcon {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 48px;
+
+    margin-bottom: 8px;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,0.5)
+        );
+}
+
+
+.planet h3,
+.planet p {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.planet h3 {
+    margin: 5px 0;
+
+    font-size: 20px;
+}
+
+
+.planet p {
+    margin: 5px 0;
+
+    font-size: 13px;
+
+    opacity: 0.75;
+
+    line-height: 1.4;
+}
+
+
+/* ================================= */
+/* PLANET ANIMATIONS */
+/* ================================= */
+
+.lovePlanet {
+    animation:
+        floatingPlanet 4s ease-in-out infinite;
+}
+
+
+.musicPlanet {
+    animation:
+        floatingPlanet 5s ease-in-out infinite 0.5s;
+}
+
+
+.mindPlanet {
+    animation:
+        floatingPlanet 4.5s ease-in-out infinite 1s;
+}
+
+
+.futurePlanet {
+    animation:
+        floatingPlanet 5.5s ease-in-out infinite 1.5s;
+}
+
+
+.secretPlanet {
+    animation:
+        secretFloat 4s ease-in-out infinite;
+
+    border:
+        1px dashed
+        rgba(255,255,255,0.5);
+}
+
+
+@keyframes floatingPlanet {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+@keyframes secretFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            scale(1.03);
+    }
+}
+
+
+/* ================================= */
+/* MAP STARS */
+/* ================================= */
+
+#universeMap::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        140px 140px;
+
+    background-position:
+        20px 20px,
+        70px 60px;
+
+    opacity: 0.25;
+
+    animation:
+        starsMove 20s linear infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        background-position:
+            20px 20px,
+            70px 60px;
+    }
+
+    to {
+        background-position:
+            110px 120px,
+            200px 160px;
+    }
+}
+
+
+/* ================================= */
+/* SECRET POPUP */
+/* ================================= */
+
+#secretPopup {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.82);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+
+#secretContent {
+    position: relative;
+
+    width: 90%;
+
+    max-width: 550px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3b0a18,
+            #18000a
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 40px
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(15px);
+
+    animation:
+        secretAppear 0.6s ease;
+}
+
+
+#secretIcon {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation:
+        secretGlow 2s ease-in-out infinite;
+}
+
+
+#secretContent h2 {
+    font-size: 32px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,255,255,0.6);
+}
+
+
+#secretContent p {
+    line-height: 1.7;
+
+    opacity: 0.9;
+}
+
+
+.secretMessage {
+    margin-top: 25px;
+
+    font-size: 21px;
+
+    color: #ffd5e3;
+}
+
+
+#closeSecret {
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    background: none;
+
+    border: none;
+
+    box-shadow: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    padding: 5px;
+}
+
+
+#closeSecret:hover {
+    background: none;
+
+    box-shadow: none;
+
+    transform: scale(1.1);
+}
+
+
+#continueButton {
+    margin-top: 25px;
+}
+
+
+@keyframes secretAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes secretGlow {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+
+        filter:
+            drop-shadow(
+                0 0 5px white
+            );
+    }
+
+    50% {
+        transform:
+            scale(1.1);
+
+        filter:
+            drop-shadow(
+                0 0 20px white
+            );
+    }
+}
+
+
+/* ================================= */
+/* ENDING */
+/* ================================= */
+
+#endingSection {
+    position: relative;
+
+    min-height: 700px;
+
+    padding: 150px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.08),
+            transparent 45%
+        );
+}
+
+
+#endingSection::before {
+    content:
+        "✦   ✧   ✦   ✧   ✦";
+
+    position: absolute;
+
+    top: 80px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 22px;
+
+    opacity: 0.4;
+
+    letter-spacing: 15px;
+}
+
+
+#endingStars {
+    font-size: 30px;
+
+    margin-bottom: 30px;
+
+    letter-spacing: 10px;
+
+    animation:
+        endingStars 3s ease-in-out infinite;
+}
+
+
+#endingSection h2 {
+    font-size:
+        clamp(32px, 5vw, 45px);
+
+    max-width: 800px;
+}
+
+
+#endingSection p {
+    max-width: 600px;
+
+    line-height: 1.8;
+}
+
+
+#endingHighlight {
+    margin-top: 30px;
+
+    font-size: 21px;
+
+    line-height: 2 !important;
+
+    color: #ffd5e3;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,120,170,0.3);
+}
+
+
+#endingSection h3 {
+    margin-top: 30px;
+
+    font-size: 25px;
+}
+
+
+#restartButton {
+    margin-top: 40px;
+}
+
+
+@keyframes endingStars {
+
+    0%,
+    100% {
+        opacity: 0.5;
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.15);
+    }
+}
+
+
+/* ================================= */
+/* GENERAL POPUP ANIMATION */
+/* ================================= */
+
+@keyframes popupAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* ================================= */
+/* TABLET */
+/* ================================= */
+
+@media (max-width: 900px) {
+
+    #memoriesGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 16px;
+    }
+
+
+    p {
+        font-size: 17px;
+    }
+
+
+    #universeScreen {
+        padding-top: 50px;
+    }
+
+
+    #giftBox {
+        font-size: 80px;
+    }
+
+
+    #lettersSection,
+    #musicSection,
+    #quizSection,
+    #memoriesSection,
+    #universeMap {
+        margin-top: 70px;
+    }
+
+
+    #memoriesGrid {
+        grid-template-columns: 1fr;
+    }
+
+
+    #quiz {
+        padding: 25px 18px;
+    }
+
+
+    #question {
+        font-size: 21px;
+    }
+
+
+    #letterContent,
+    #memoryPopupContent,
+    #secretContent {
+        width: 88%;
+
+        padding:
+            35px 20px;
+    }
+
+
+    #planetContainer {
+        gap: 25px;
+    }
+
+
+    .planet {
+        width: 150px;
+
+        height: 150px;
+    }
+
+
+    .planetIcon {
+        font-size: 38px;
+    }
+
+
+    .planet h3 {
+        font-size: 16px;
+    }
+
+
+    .planet p {
+        font-size: 11px;
+    }
+
+
+    #universeMap h2 {
+        font-size: 32px;
+    }
+
+
+    #endingSection {
+        padding:
+            120px 20px;
+    }
+
+
+    #endingSection h2 {
+        font-size: 32px;
+    }
+
+
+    #endingHighlight {
+        font-size: 18px;
+    }
+
+}
