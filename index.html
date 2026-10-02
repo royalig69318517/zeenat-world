@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zeenat Universe ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- WELCOME SCREEN -->
+    <!-- ========================= -->
+
+    <div id="welcomeScreen">
+
+        <h1>Welcome to your universe, Zeenat ❤️</h1>
+
+        <p>
+            A little world made just for you.
+        </p>
+
+        <button id="enterButton">
+            Enter My Universe ✨
+        </button>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- MAIN UNIVERSE -->
+    <!-- ========================= -->
+
+    <div id="universeScreen">
+
+        <h1>
+            Welcome to the Zeenat Universe 🌌
+        </h1>
+
+        <p>
+            Our story is just beginning...
+        </p>
+
+
+        <!-- ========================= -->
+        <!-- GIFT -->
+        <!-- ========================= -->
+
+        <div id="giftBox">
+            🎁
+        </div>
+
+        <p id="giftText">
+            There's something waiting for you...
+        </p>
+
+        <div id="giftMessage">
+
+            <h2>
+                For Zeenat ❤️
+            </h2>
+
+            <p>
+                I couldn't buy you a universe,
+                so I made you a little one.
+            </p>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- OPEN WHEN LETTERS -->
+        <!-- ========================= -->
+
+        <section id="lettersSection">
+
+            <h2>
+                Open When... 💌
+            </h2>
+
+            <p>
+                Some little messages for different moments.
+            </p>
+
+            <div class="letters">
+
+                <button
+                    class="letter"
+                    data-message="If you are missing me, remember that distance does not change how much you mean to me. ❤️">
+                    Open when you miss me
+                </button>
+
+                <button
+                    class="letter"
+                    data-message="Whatever happened today, I hope you remember that you are loved and appreciated. 🌹">
+                    Open when you have had a bad day
+                </button>
+
+                <button
+                    class="letter"
+                    data-message="I hope you are smiling right now. You deserve many more reasons to smile. ❤️">
+                    Open when you are happy
+                </button>
+
+                <button
+                    class="letter"
+                    data-message="If you are angry with me, take a breath first. Then remember that I would rather understand you than argue with you. ❤️">
+                    Open when you are angry with me
+                </button>
+
+                <button
+                    class="letter"
+                    data-message="Here is your reminder: you are important to me, and I am grateful that you are part of my life. ❤️">
+                    Open when you need a reminder
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- MUSIC -->
+        <!-- ========================= -->
+
+        <section id="musicSection">
+
+            <h2>
+                Our Little Soundtrack 🎵
+            </h2>
+
+            <p>
+                A little music for your universe.
+            </p>
+
+            <button id="musicButton">
+                ▶ Play Music
+            </button>
+
+            <audio id="backgroundMusic" loop>
+
+                <source
+                    src="music/our-song.mp3"
+                    type="audio/mpeg">
+
+            </audio>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- QUIZ -->
+        <!-- ========================= -->
+
+        <section id="quizSection">
+
+            <h2>
+                How Well Do You Know Us? ❤️
+            </h2>
+
+            <p>
+                Let's see what you remember.
+            </p>
+
+            <div id="quiz">
+
+                <h3 id="question"></h3>
+
+                <div id="answers"></div>
+
+                <p id="quizResult"></p>
+
+                <button id="nextQuestion">
+                    Next Question
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- FUTURE MEMORIES -->
+        <!-- ========================= -->
+
+        <section id="memoriesSection">
+
+            <h2>
+                Memories We Haven't Made Yet ❤️
+            </h2>
+
+            <p>
+                Some pages of our story are still waiting to be written...
+            </p>
+
+            <div id="memoriesGrid">
+
+                <div
+                    class="memoryCard"
+                    data-memory="Our first proper date 🌹">
+
+                    <div class="memoryIcon">
+                        🌹
+                    </div>
+
+                    <h3>
+                        Our First Proper Date
+                    </h3>
+
+                    <p>
+                        Coming soon...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="memoryCard"
+                    data-memory="Our first inside joke 😂">
+
+                    <div class="memoryIcon">
+                        😂
+                    </div>
+
+                    <h3>
+                        Our First Inside Joke
+                    </h3>
+
+                    <p>
+                        Coming soon...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="memoryCard"
+                    data-memory="Our first picture together 📸">
+
+                    <div class="memoryIcon">
+                        📸
+                    </div>
+
+                    <h3>
+                        Our First Picture
+                    </h3>
+
+                    <p>
+                        Coming soon...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="memoryCard"
+                    data-memory="Our first movie night 🎬">
+
+                    <div class="memoryIcon">
+                        🎬
+                    </div>
+
+                    <h3>
+                        Our First Movie Night
+                    </h3>
+
+                    <p>
+                        Coming soon...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="memoryCard"
+                    data-memory="Our first trip together ✈️">
+
+                    <div class="memoryIcon">
+                        ✈️
+                    </div>
+
+                    <h3>
+                        Our First Trip
+                    </h3>
+
+                    <p>
+                        Coming soon...
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="memoryCard specialMemory"
+                    data-memory="A memory we haven't even imagined yet ❤️">
+
+                    <div class="memoryIcon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Something Unexpected
+                    </h3>
+
+                    <p>
+                        Maybe the best one...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- MEMORY POPUP -->
+        <!-- ========================= -->
+
+        <div id="memoryPopup">
+
+            <div id="memoryPopupContent">
+
+                <button id="closeMemory">
+                    ×
+                </button>
+
+                <div id="memoryPopupIcon">
+                    ✨
+                </div>
+
+                <h2 id="memoryPopupTitle"></h2>
+
+                <p>
+                    Not yet... 👀❤️
+                </p>
+
+                <p>
+                    But someday, this won't be a
+                    "coming soon" memory anymore.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- UNIVERSE MAP -->
+        <!-- ========================= -->
+
+        <section id="universeMap">
+
+            <h2>
+                Explore Your Universe 🌌
+            </h2>
+
+            <p class="mapIntro">
+                Every little world holds a different part
+                of this universe. Take your time and explore
+                them all.
+            </p>
+
+            <div id="planetContainer">
+
+                <div
+                    class="planet lovePlanet"
+                    data-target="lettersSection">
+
+                    <div class="planetIcon">
+                        💌
+                    </div>
+
+                    <h3>
+                        Love Planet
+                    </h3>
+
+                    <p>
+                        Messages for different moments
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="planet musicPlanet"
+                    data-target="musicSection">
+
+                    <div class="planetIcon">
+                        🎵
+                    </div>
+
+                    <h3>
+                        Melody Planet
+                    </h3>
+
+                    <p>
+                        A little soundtrack for us
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="planet mindPlanet"
+                    data-target="quizSection">
+
+                    <div class="planetIcon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Mind Planet
+                    </h3>
+
+                    <p>
+                        How well do you know me?
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="planet futurePlanet"
+                    data-target="memoriesSection">
+
+                    <div class="planetIcon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Future Planet
+                    </h3>
+
+                    <p>
+                        Memories waiting to happen
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="planet secretPlanet"
+                    id="secretPlanet">
+
+                    <div class="planetIcon">
+                        🔐
+                    </div>
+
+                    <h3>
+                        Mystery Planet
+                    </h3>
+
+                    <p>
+                        Something is waiting here...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- ENDING -->
+        <!-- ========================= -->
+
+        <section id="endingSection">
+
+            <div id="endingStars">
+                ✦　✧　✦　✧　✦
+            </div>
+
+            <h2>
+                And That's Your Universe... 🌌
+            </h2>
+
+            <p>
+                At least for now.
+            </p>
+
+            <p>
+                Because this little universe
+                is only the beginning.
+            </p>
+
+            <p id="endingHighlight">
+
+                There are still places we haven't seen,
+                <br>
+
+                conversations we haven't had,
+                <br>
+
+                memories we haven't made,
+                <br>
+
+                and moments we haven't imagined yet.
+
+            </p>
+
+            <p>
+                Maybe that's what makes it beautiful. ❤️
+            </p>
+
+            <h3>
+                Our story is still being written.
+            </h3>
+
+            <button id="restartButton">
+                Explore Again 🌌
+            </button>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- SECRET POPUP -->
+        <!-- ========================= -->
+
+        <div id="secretPopup">
+
+            <div id="secretContent">
+
+                <button id="closeSecret">
+                    ×
+                </button>
+
+                <div id="secretIcon">
+                    🌌
+                </div>
+
+                <h2>
+                    You Found The Secret ❤️
+                </h2>
+
+                <p>
+                    I could have hidden anything here...
+                </p>
+
+                <p>
+                    But I wanted you to find something simple.
+                </p>
+
+                <p class="secretMessage">
+                    You are one of the reasons I wanted
+                    to create this little universe in the
+                    first place. ❤️
+                </p>
+
+                <button id="continueButton">
+                    Continue ✨
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- LETTER POPUP -->
+        <!-- ========================= -->
+
+        <div id="letterPopup">
+
+            <div id="letterContent">
+
+                <button id="closeLetter">
+                    ×
+                </button>
+
+                <p id="letterMessage"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
